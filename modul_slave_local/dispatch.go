@@ -1,4 +1,4 @@
-package modul_slave_local
+package modul_subordinate_local
 
 import (
 	"database/sql"
@@ -7,7 +7,7 @@ import (
 
 func Dispatch(date string) {
 	dbl := connDB(localInfo)
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 
 	defer dbs.Close()
 	defer dbl.Close()
@@ -15,7 +15,7 @@ func Dispatch(date string) {
 	tableName := "dispatch_all"
 	fid, lid := getIdxDispatch(date, dbl)
 
-	fmt.Println("starting insert slave to local data dispatch |", date)
+	fmt.Println("starting insert subordinate to local data dispatch |", date)
 	offset := 10000
 	counter := 0
 	for i := 0; true; i++ {

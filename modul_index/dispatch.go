@@ -11,7 +11,7 @@ import (
 func Dispatch(first, last string) {
 	fmt.Println("..... Processing index dispatcher .....")
 
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 	dbl := connDB(localInfo)
 
 	defer dbs.Close()

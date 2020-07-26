@@ -5,7 +5,7 @@ import (
 	"time"
 
 	index "./modul_index"
-	slaveLocal "./modul_slave_local"
+	subordinateLocal "./modul_subordinate_local"
 	dataprocess "./modul_data_processing"
 
 	"github.com/jasonlvhit/gocron"
@@ -24,7 +24,7 @@ func task() {
 	gettingIndex(yesterday)
 
 	fmt.Println("### stage 2 -", yesterday)
-	slaveToLocal(yesterday)
+	subordinateToLocal(yesterday)
 
 	fmt.Println("### stage 3 -", yesterday)
 	dataProcessing(yesterday)
@@ -36,11 +36,11 @@ func gettingIndex(date string) {
 	index.Dispatch(date, date)
 }
 
-func slaveToLocal(date string) {
-	slaveLocal.Charge(date)
-	slaveLocal.Injections(date)
-	slaveLocal.Subscriptions(date)
-	slaveLocal.Dispatch(date)
+func subordinateToLocal(date string) {
+	subordinateLocal.Charge(date)
+	subordinateLocal.Injections(date)
+	subordinateLocal.Subscriptions(date)
+	subordinateLocal.Dispatch(date)
 }
 
 func dataProcessing(date string) {

@@ -11,7 +11,7 @@ import (
 func Injections(first, last string) {
 	fmt.Println("..... Processing index injections .....")
 
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 	dbl := connDB(localInfo)
 
 	defer dbs.Close()

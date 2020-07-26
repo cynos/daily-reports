@@ -9,8 +9,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var slaveInfo = dbconf{
-	host:     "mobilink-2018-slave-1.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com",
+var subordinateInfo = dbconf{
+	host:     "mobilink-2018-subordinate-1.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com",
 	port:     5432,
 	user:     "operations_team",
 	password: "fqzq5PfXjAyuMvR2",

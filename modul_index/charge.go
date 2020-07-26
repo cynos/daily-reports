@@ -11,7 +11,7 @@ import (
 func Charge(first, last string) {
 	fmt.Println("..... Processing index charge .....")
 
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 	dbl := connDB(localInfo)
 
 	defer dbs.Close()
