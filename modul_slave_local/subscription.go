@@ -1,4 +1,4 @@
-package modul_slave_local
+package modul_subordinate_local
 
 import (
 	"database/sql"
@@ -8,7 +8,7 @@ import (
 )
 
 func Subscriptions(date string) {
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 	dbl := connDB(localInfo)
 
 	defer dbs.Close()
@@ -18,7 +18,7 @@ func Subscriptions(date string) {
 	stmt, err := dbl.Prepare("INSERT INTO " + tableName + " VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21)")
 	checkError("failed to prepare statement |", err)
 
-	fmt.Println("starting insert slave to local data subscriptions |", date)
+	fmt.Println("starting insert subordinate to local data subscriptions |", date)
 
 	date = strings.Replace(date, " 00:00:00", "", -1)
 	startTime := " 00:00:00"

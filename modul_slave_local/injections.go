@@ -1,4 +1,4 @@
-package modul_slave_local
+package modul_subordinate_local
 
 import (
 	"database/sql"
@@ -7,7 +7,7 @@ import (
 )
 
 func Injections(date string) {
-	dbs := connDB(slaveInfo)
+	dbs := connDB(subordinateInfo)
 	dbl := connDB(localInfo)
 
 	defer dbs.Close()
@@ -16,7 +16,7 @@ func Injections(date string) {
 	tableName := "injections_all"
 	fid, lid := getIdxInjections(date, dbl)
 
-	fmt.Println("starting insert slave to local data injections |", date)
+	fmt.Println("starting insert subordinate to local data injections |", date)
 	offset := 5000
 	counter := 0
 	for i := 0; true; i++ {
